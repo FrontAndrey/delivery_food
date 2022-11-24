@@ -1,6 +1,8 @@
 const menu = () => {
     const cardsMenu = document.querySelector('.cards-menu')
-    const cartArray = []
+    const cartArray = localStorage.getItem('cart') ?
+        JSON.parse(localStorage.getItem('cart')) :
+        []
 
 
     const changeTitle = (restaurant) => {
@@ -17,10 +19,11 @@ const menu = () => {
 
     const addToCart = (cartItem) => {
         if (cartArray.some((item) => item.id === cartItem.id)) {
-            cartItem.map((item => {
+            cartArray.map((item => {
                 if (item.id === cartItem.id) {
                     item.count++
                 }
+
                 return item
             }))
         } else {
@@ -33,7 +36,6 @@ const menu = () => {
         data.forEach(({ description, id, image, name, price }) => {
 
             const card = document.createElement('div')
-            console.log(card)
             card.classList.add('card')
 
             card.innerHTML =
