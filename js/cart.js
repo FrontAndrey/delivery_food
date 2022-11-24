@@ -4,7 +4,7 @@ const cart = () => {
     const close = modalCart.querySelector('.close')
     const body = modalCart.querySelector('.modal-body')
     const buttonSend = modalCart.querySelector('.button-primary')
-
+    const bodyy = modalCart.querySelector('.modal-body')
     const resetCart = () => {
         body.innerHTML = ''
         localStorage.removeItem('cart')
